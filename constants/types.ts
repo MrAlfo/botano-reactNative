@@ -21,3 +21,8 @@ export interface ExerciseCardProps {
     price: string;
     subtitle: string;
   }
+
+  export type RootStackParamList = {
+    (tabs: any): undefined;
+    explore: undefined; // "explore" rotası için tanımlama
+  };

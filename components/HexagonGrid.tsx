@@ -50,12 +50,12 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginVertical: 10,
+    marginVertical: 0,
+    gap:5
   },
   profileHexagon: {
-    marginHorizontal: 5,
     width: 100,
-    height: 100,
+    height: 80,
   },
 });
 

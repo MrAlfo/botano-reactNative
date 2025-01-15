@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
   relatedContainer: {
     width: '100%',
     flexDirection: 'column',
+    marginTop: 40
   },
   textContent: {
     flexDirection: 'column',
@@ -34,12 +35,12 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 26,
     color: '#FFFFFF',
-    fontFamily: 'Poppins-Regular',
+    fontFamily: 'Poppins_Regular',
     fontWeight: '500',
   },
   description: {
     fontSize: 14,
-    fontFamily: 'Poppins-Regular',
+    fontFamily: 'Poppins_Regular',
     lineHeight: 23,
     color: '#FFFFFF',
     marginTop: 5,

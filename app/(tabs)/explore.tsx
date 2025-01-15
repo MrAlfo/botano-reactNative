@@ -1,26 +1,30 @@
 import * as React from "react";
-import { Text, StyleSheet, View, ScrollView } from "react-native";
+import { Text, StyleSheet, View, ScrollView, TouchableOpacity } from "react-native";
 import { Image } from "expo-image";
 import { ExerciseCard } from "@/components/ExerciseCard";
 import { ProductCard } from "@/components/ProductCard";
 import { RelatedProduct } from "@/components/RelatedProduct";
 import { PriceDisplay } from "@/components/PriceDisplay";
+import BottomSheetModal from "@/components/BottomSheetModal";
 
 
 const KartModal = () => {
+  const [isSheetVisible, setIsSheetVisible] = React.useState(true);
+
+  const openSheet = () => setIsSheetVisible(true);
+  const closeSheet = () => setIsSheetVisible(false);
   return (
     <ScrollView style={styles.screenContainer}>
       <View style={styles.backButton}>
         <Image
           resizeMode="contain"
-          source={{ uri: 'https://cdn.builder.io/api/v1/image/assets/TEMP/d50fc5ddaefa5508a73e510ad64fb8417e7d9e7c9eaa48e9eaf30b3bd7c6a6ca?placeholderIfAbsent=true&apiKey=7efa2bc6ca0748d89d049010d54aaee0' }}
+          source={require("../../assets/images/maskMain.png")}
           style={styles.backIcon}
         />
       </View>
       
       <View style={styles.mainContent}>
         <Image
-          resizeMode="contain"
           source={{ uri: 'https://cdn.builder.io/api/v1/image/assets/TEMP/e01f919a-13da-4e19-9516-3487e084c232?placeholderIfAbsent=true&apiKey=7efa2bc6ca0748d89d049010d54aaee0' }}
           style={styles.mainImage}
         />
@@ -48,15 +52,16 @@ const KartModal = () => {
             description="Select or customize your avatar and enter your social media account information to personalize your profile."
             images={['https://cdn.builder.io/api/v1/image/assets/TEMP/a0f3dabfa93ecdb1ad1ecfa5a3707b98e904a4f8f83e61b4e41f4f7836782ee2?placeholderIfAbsent=true&apiKey=7efa2bc6ca0748d89d049010d54aaee0', 'https://cdn.builder.io/api/v1/image/assets/TEMP/00a158dfd32bdb68f526b60eb767973e4037a8c27231b1bf40233e59293b1f9f?placeholderIfAbsent=true&apiKey=7efa2bc6ca0748d89d049010d54aaee0']}
           />
-          
           <PriceDisplay
             title="Advanced Juice Reboot by JRINK by Purée Regular price"
             price="$150"
             subtitle="Sustainably Wild Harvested Chaga Mushroom"
           />
-          <View style={styles.actionButton}>
+           <TouchableOpacity style={styles.actionButton} onPress={openSheet}>
             <Text style={styles.actionButtonText}>Ok, I'm in!</Text>
-          </View>
+          </TouchableOpacity>
+
+          {isSheetVisible && <BottomSheetModal closeSheet={closeSheet} />}
         </View>
       </View>
     </ScrollView>
@@ -71,6 +76,7 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingTop: 21,
     paddingBottom: 21,
+    fontFamily: 'Poppins_Regular',
   },
   backButton: {
     borderRadius: 32,
@@ -90,6 +96,7 @@ const styles = StyleSheet.create({
     marginTop: 15,
     width: '100%',
     paddingLeft: 20,
+    marginBottom: 100
   },
   mainImage: {
     width: '100%',
@@ -111,16 +118,18 @@ const styles = StyleSheet.create({
     borderRadius: 40,
     marginTop: 29,
     padding: 16,
+    borderColor: '#ffffff',
+    borderWidth: 1
   },
   actionButtonText: {
     fontSize: 20,
-    color: '#38635A',
-    fontFamily: 'ITC Avant Garde Gothic',
+    color: '#ffffff',
+    fontFamily: 'Poppins_Regular',
     fontWeight: '600',
     textAlign: 'center',
   },
   text: {
-    fontFamily: "CustomFont-Regular",
+    fontFamily: 'Poppins_Regular',
   }
 });
 

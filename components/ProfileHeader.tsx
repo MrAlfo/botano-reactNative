@@ -1,12 +1,19 @@
 import React from "react";
-import { View, Text, StyleSheet, Image, ImageBackground, useWindowDimensions } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  ImageBackground,
+  useWindowDimensions,
+} from "react-native";
+import ScoreRow from "./ScoreRow";
 
 type ProfileHeaderProps = {
   name: string;
   imageUri: string;
   scores: any;
 };
-
 
 const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   name,
@@ -30,25 +37,12 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
               style={styles.profileImage}
             />
           </View>
-
           {/* Kullanıcı Adı */}
           <Text style={styles.profileName}>{name}</Text>
-
+        </View>
+        <View style={styles.contentScore}>
           {/* Puanlar */}
-          <View style={styles.scores}>
-            <View style={styles.scoreItem}>
-              <Text style={styles.scoreNumber}>14</Text>
-            </View>
-            <View style={styles.scoreItem}>
-              <Text style={styles.scoreNumber}>10</Text>
-            </View>
-            <View style={styles.scoreItem}>
-              <Text style={styles.scoreNumber}>5</Text>
-            </View>
-            <View style={styles.scoreItem}>
-              <Text style={styles.scoreNumber}>9</Text>
-            </View>
-          </View>
+          <ScoreRow />
         </View>
       </ImageBackground>
     </View>
@@ -87,6 +81,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 50,
   },
+  contentScore: {
+    alignItems: "center",
+    marginTop: 10,
+    position: "relative",
+    top: 40,
+  },
   imageWrapper: {
     backgroundColor: "#fff",
     borderRadius: 50,
@@ -98,8 +98,8 @@ const styles = StyleSheet.create({
     borderRadius: 50,
   },
   profileName: {
-    fontSize: 18,
-    fontFamily: "Poppins-Bold",
+    fontSize: 20,
+    fontFamily: "Poppins_Regular",
     marginTop: 10,
   },
   scores: {
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
   scoreNumber: {
     fontSize: 14,
     fontWeight: "bold",
-    fontFamily: "Poppins-Regular",
+    fontFamily: "Poppins_Regular",
     marginTop: 5,
   },
 });

@@ -12,7 +12,7 @@ export const ExerciseCard: React.FC<ExerciseCardProps> = ({ title, description, 
         </View>
         <Image
           resizeMode="contain"
-          source={{ uri: iconUrl }}
+          source={require('../assets/images/ex_icon.png') }
           style={styles.icon}
         />
       </View>
@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
   },
   headerContainer: {
     display: 'flex',
+    flexDirection: 'row',
     width: '100%',
     gap: 0,
     justifyContent: 'space-between',
@@ -40,7 +41,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 26,
     color: '#FFFFFF',
-    fontFamily: 'Poppins-Regular',
+    fontFamily: 'Poppins_Regular',
     fontWeight: '500',
   },
   icon: {
@@ -49,12 +50,12 @@ const styles = StyleSheet.create({
     flexShrink: 0,
   },
   descriptionContainer: {
-    marginTop: 5,
+    marginTop: 0,
   },
   description: {
-    fontSize: 14,
+    fontSize: 16,
     lineHeight: 23,
     color: '#FFFFFF',
-    fontFamily: 'Poppins-Regular',
+    fontFamily: 'Poppins_Regular',
   },
 });

@@ -36,7 +36,7 @@
       [
         "expo-font",
         {
-          "fonts": ["node_modules/@expo-google-fonts/Poppins_400Regular.ttf"]
+          "fonts": ["node_modules/@expo-google-fonts/Poppins_300Light.ttf", "node_modules/@expo-google-fonts/Poppins_400Regular.ttf", "node_modules/@expo-google-fonts/Poppins_700Bold.ttf"]
         }
       ]
     ],

@@ -48,7 +48,7 @@ const Hexagon: React.FC<HexagonProps> = ({ label, color, imageSource }) => {
 const styles = StyleSheet.create({
   container: {
     width: 100,
-    height: 100,
+    height: 80,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -56,13 +56,13 @@ const styles = StyleSheet.create({
     position: 'absolute',
     alignItems: 'center',
     justifyContent: 'center',
-    fontFamily: "Poppins-Regular",
-    width: '100%',
+    fontFamily: "Poppins_Regular",
+    width: '80%',
     height: '100%',
   },
   text: {
-    fontSize: 12,
-    fontFamily: "Poppins-Regular",
+    fontSize: 14,
+    fontFamily: "Poppins_Regular",
     color: '#000',
     textAlign: 'center',
   },

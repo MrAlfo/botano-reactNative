@@ -1,7 +1,9 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 const BotanoCard = () => {
+  const navigation = useNavigation<any>();
   return (
     <View style={styles.card}>
       {/* Sol Tarafta İkon ve Başlık */}
@@ -21,7 +23,7 @@ const BotanoCard = () => {
         </Text>
 
         {/* Buton */}
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity onPress={() => navigation.navigate('explore')} style={styles.button}>
           <Text style={styles.buttonText}>Do you want help?</Text>
         </TouchableOpacity>
       </View>
@@ -49,31 +51,36 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 18,
-    fontFamily: "Poppins-Bold",
+    fontFamily: "Poppins_Bold",
     color: "#2A9D8F",
   },
   text: {
-    marginBottom: 10
+    marginBottom: 10,
+    fontFamily: "Poppins_Regular",
+    fontSize: 16
   },
   description: {
     padding: 20,
     backgroundColor: "#DFF7E6",
     borderRadius: 10,
-    fontSize: 14,
+    borderStartStartRadius: 0,
+    fontSize: 16,
     color: "#2A9D8F",
     marginBottom: 15,
+    fontFamily: "Poppins_Regular",
   },
   button: {
     backgroundColor: "#2A9D8F",
     borderRadius: 5,
     paddingVertical: 10,
     alignItems: "flex-start",
-    paddingLeft: 10
+    paddingLeft: 10,
+    marginTop: 10
   },
   buttonText: {
     color: "#fff",
-    fontFamily: "Poppins-Bold",
-    fontSize: 14,
+    fontFamily: "Poppins_Bold",
+    fontSize: 16,
   },
 });
 

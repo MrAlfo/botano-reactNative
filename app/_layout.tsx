@@ -13,17 +13,20 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    Poppins: require('../assets/fonts/Poppins-Regular.ttf'),
+
+  const [fontsLoaded] = useFonts({
+    Poppins_Light: require('../assets/fonts/Poppins-Light.ttf'),
+    Poppins_Regular: require('../assets/fonts/Poppins-Regular.ttf'),
+    Poppins_Bold: require('../assets/fonts/Poppins-Bold.ttf'),
   });
 
   useEffect(() => {
-    if (loaded) {
+    if (fontsLoaded) {
       SplashScreen.hideAsync();
     }
-  }, [loaded]);
+  }, [fontsLoaded]);
 
-  if (!loaded) {
+  if (!fontsLoaded) {
     return null;
   }
 
@@ -32,6 +35,7 @@ export default function RootLayout() {
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
+        <Stack.Screen name="explore" options={{ title: 'Explore' }} />
       </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>
