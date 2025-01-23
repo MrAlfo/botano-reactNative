@@ -1,6 +1,6 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
-import { Platform, View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, TouchableWithoutFeedback } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function TabLayout() {
@@ -26,22 +26,26 @@ export default function TabLayout() {
       <Tabs.Screen
         name="engage"
         options={{
-          tabBarIcon: ({ focused }) => (
-            <View style={[styles.tabItem, focused && styles.activeTab]}>
-              <Ionicons name="radio" size={18} color={focused ? '#FFFFFF' : '#2D625F'} />
-              <Text style={[styles.tabText, focused && styles.activeTabText]}>Engage</Text>
-            </View>
+          tabBarButton: (props) => (
+            <TouchableWithoutFeedback onPress={() => {}}>
+              <View style={styles.tabItem}>
+                <Ionicons name="radio" size={18} color="#2D625F" />
+                <Text style={styles.tabText}>Engage</Text>
+              </View>
+            </TouchableWithoutFeedback>
           ),
         }}
       />
       <Tabs.Screen
         name="explore"
         options={{
-          tabBarIcon: ({ focused }) => (
-            <View style={[styles.tabItem, focused && styles.activeTab]}>
-              <Ionicons name="compass-outline" size={18} color={focused ? '#FFFFFF' : '#2D625F'} />
-              <Text style={[styles.tabText, focused && styles.activeTabText]}>Explore</Text>
-            </View>
+          tabBarButton: (props) => (
+            <TouchableWithoutFeedback onPress={() => {}}>
+              <View style={styles.tabItem}>
+                <Ionicons name="compass-outline" size={18} color="#2D625F" />
+                <Text style={styles.tabText}>Explore</Text>
+              </View>
+            </TouchableWithoutFeedback>
           ),
         }}
       />
@@ -69,9 +73,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between', // Sekmeler arası eşit boşluk bırak
   },
   tabItem: {
-    position: 'absolute',
-    top: 0,
-    height: 50,
+    height: 60,
     width: 110,
     flexDirection: 'row', // İkon ve metni yatay hizala
     alignItems: 'center', // Dikey ortalama
@@ -80,6 +82,7 @@ const styles = StyleSheet.create({
   },
   activeTab: {
     backgroundColor: '#2D625F',
+    top: 10
   },
   tabText: {
     fontSize: 12,

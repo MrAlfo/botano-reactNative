@@ -13,13 +13,13 @@ export interface ExerciseCardProps {
   export interface RelatedProductProps {
     title: string;
     description: string;
-    images: string[];
   }
   
   export interface PriceDisplayProps {
     title: string;
     price: string;
     subtitle: string;
+    images: string[];
   }
 
   export type RootStackParamList = {

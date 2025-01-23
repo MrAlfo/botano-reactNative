@@ -1,17 +1,32 @@
 import { PriceDisplayProps } from '@/constants/types';
 import * as React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
 
-export const PriceDisplay: React.FC<PriceDisplayProps> = ({ title, price, subtitle }) => {
+export const PriceDisplay: React.FC<PriceDisplayProps> = ({ title, price, subtitle, images }) => {
   return (
-    <View style={styles.priceContainer}>
-      <Text style={styles.title}>{title}</Text>
-      <View style={styles.priceContent}>
-        <Text style={styles.price}>{price}</Text>
-        <View style={styles.underline} />
+    <ScrollView horizontal={true} // Yatay kaydırmayı etkinleştir
+      showsHorizontalScrollIndicator={false} style={styles.priceContainer}>
+      <View style={styles.imagesContainer}>
+        {images.map((imageUrl: any, index: any) => (
+          <View style={styles.bothContainer}>
+            <Image
+              key={index}
+              resizeMode="contain"
+              source={{ uri: imageUrl }}
+              style={styles.image}
+            />
+            <Text style={styles.title}>{title}</Text>
+            <View style={styles.priceContent}>
+              <Text style={styles.price}>{price}</Text>
+              <View style={styles.underline} />
+            </View>
+            <Text style={styles.subtitle}>{subtitle}</Text>
+            </View>
+
+
+        ))}
       </View>
-      <Text style={styles.subtitle}>{subtitle}</Text>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -53,4 +68,18 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     lineHeight: 17,
   },
+  imagesContainer: {
+    marginTop: 20,
+    flexDirection: 'row',
+    gap: 20,
+    overflow: 'hidden',
+  },
+  image: {
+    width: 196,
+    aspectRatio: 1.28,
+    flexShrink: 0,
+  },
+  bothContainer: {
+    display: 'flex'
+  }
 });

@@ -1,25 +1,16 @@
 import { RelatedProductProps } from '@/constants/types';
 import * as React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
 
-export const RelatedProduct: React.FC<RelatedProductProps> = ({ title, description, images }) => {
+export const RelatedProduct: React.FC<RelatedProductProps> = ({ title, description }) => {
   return (
-    <View style={styles.relatedContainer}>
+    <ScrollView       horizontal={true} // Yatay kaydırmayı etkinleştir
+        showsHorizontalScrollIndicator={false}  style={styles.relatedContainer}>
       <View style={styles.textContent}>
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.description}>{description}</Text>
       </View>
-      <View style={styles.imagesContainer}>
-        {images.map((imageUrl, index) => (
-          <Image
-            key={index}
-            resizeMode="contain"
-            source={{ uri: imageUrl }}
-            style={styles.image}
-          />
-        ))}
-      </View>
-    </View>
+    </ScrollView>
   );
 };
 

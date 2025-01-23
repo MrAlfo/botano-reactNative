@@ -1,9 +1,10 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useRouter } from "expo-router";
 
 const BotanoCard = () => {
-  const navigation = useNavigation<any>();
+  const router = useRouter();
+
   return (
     <View style={styles.card}>
       {/* Sol Tarafta İkon ve Başlık */}
@@ -23,7 +24,7 @@ const BotanoCard = () => {
         </Text>
 
         {/* Buton */}
-        <TouchableOpacity onPress={() => navigation.navigate('explore')} style={styles.button}>
+        <TouchableOpacity onPress={() => router.push('/pages/help')} style={styles.button}>
           <Text style={styles.buttonText}>Do you want help?</Text>
         </TouchableOpacity>
       </View>
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
   text: {
     marginBottom: 10,
     fontFamily: "Poppins_Regular",
-    fontSize: 16
+    fontSize: 16,
   },
   description: {
     padding: 20,
@@ -75,7 +76,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     alignItems: "flex-start",
     paddingLeft: 10,
-    marginTop: 10
+    marginTop: 10,
   },
   buttonText: {
     color: "#fff",

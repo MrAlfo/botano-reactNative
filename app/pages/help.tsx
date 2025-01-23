@@ -70,11 +70,7 @@ const KartModal = () => {
     <SafeAreaView>
       <ScrollView style={styles.screenContainer}>
       <TouchableOpacity style={styles.backButton} onPress={() => router.push("/")}>
-          <Image
-            resizeMode="contain"
-            source={require("../../assets/images/maskMain.png")} // Çarpı ikonunun yolu
-            style={styles.backIcon}
-          />
+          <Text style={styles.backText}>X</Text>
         </TouchableOpacity>
 
         <View style={styles.mainContent}>
@@ -149,24 +145,31 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins_Regular',
   },
   backButton: {
-    borderRadius: 32,
+    borderRadius: 90,
     borderColor: '#FFFFFF',
     borderWidth: 2,
-    marginRight: 20,
-    minHeight: 36,
-    padding: 11,
+    maxHeight: 40,
+    padding: 8,
     alignItems: 'center',
-    justifyContent: 'space-between',
+    width: 40,
+    right: 10,
+    top: 10,
+    position: 'absolute',
+    zIndex: 3
   },
   backIcon: {
     width: 14,
     aspectRatio: 1,
+    color: '#fff',
+  },
+  backText: {
+    color: '#fff',
   },
   mainContent: {
-    marginTop: 15,
+    marginTop: 80,
     width: '100%',
     paddingLeft: 20,
-    marginBottom: 100
+    marginBottom: 40,
   },
   mainImage: {
     width: '100%',
