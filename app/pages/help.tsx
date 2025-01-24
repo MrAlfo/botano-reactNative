@@ -22,6 +22,7 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 import { Stack, useRouter } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
 
 interface BottomSheetProps {
   isOpen: Animated.SharedValue<boolean>;
@@ -143,6 +144,12 @@ const KartModal = () => {
       </ScrollView>
       <BottomSheet isOpen={isOpen} toggleSheet={toggleSheet}>
         <ScrollView showsVerticalScrollIndicator={false} style={styles.sheetContent}>
+        <TouchableOpacity
+          style={styles.backButtonModal}
+          onPress={toggleSheet}
+        >
+          <Ionicons name="arrow-back" size={32} color="gray" />
+        </TouchableOpacity>
           <Text style={styles.cardCompletedText}>CARD COMPLETED!</Text>
           <Text style={styles.greatText}>Great!</Text>
           <Text style={styles.subtitle}>
@@ -208,6 +215,27 @@ const KartModal = () => {
               <Text style={styles.newCardButtonText}>CONTINUE NEW CARD</Text>
             </TouchableOpacity>
           </View>
+          <View style={styles.nextCardContainer}>
+            <Text style={styles.nextCardTitle}>RELATED CARDS</Text>
+            <Text style={styles.cardTitle}>Plant Care Day</Text>
+            <View style={styles.nextCardContent}>
+              <TouchableOpacity>
+                <Text style={styles.arrowText}>{"<"}</Text>
+              </TouchableOpacity>
+              <View style={styles.card}>
+                <Image
+                  source={require("../../assets/images/woman.png")}
+                  style={styles.cardImage}
+                />
+              </View>
+              <TouchableOpacity>
+                <Text style={styles.arrowText}>{">"}</Text>
+              </TouchableOpacity>
+            </View>
+            <TouchableOpacity style={styles.newCardButton}>
+              <Text style={styles.newCardButtonText}>CONTINUE NEW CARD</Text>
+            </TouchableOpacity>
+          </View>
         </ScrollView>
       </BottomSheet>
     </SafeAreaView>
@@ -226,6 +254,7 @@ const styles = StyleSheet.create({
   },
   sheetContent: {
     flex: 1,
+    marginHorizontal: 0
   },
   backButton: {
     borderRadius: 90,
@@ -351,6 +380,11 @@ const styles = StyleSheet.create({
   backButtonModal: {
     width: 35,
     height: 35,
+    position: 'fixed',
+    display: 'flex',
+    top: 30,
+    left: 0,
+    zIndex: 3
   },
   backIconModal: {
     width: "100%",
@@ -510,8 +544,8 @@ const styles = StyleSheet.create({
 // BottomSheet için Stil
 const sheetStyles = StyleSheet.create({
   sheet: {
-    padding: 16,
-    height: 600,
+    paddingVertical: 0,
+    height: '90%',
     width: "100%",
     position: "absolute",
     bottom: 0,

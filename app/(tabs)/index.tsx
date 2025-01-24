@@ -12,12 +12,14 @@ import profileData from "../../assets/data/profileData.json";
 import BotanoCard from "@/components/BotanoCard";
 import HexagonGrid from "@/components/HexagonGrid";
 import React, { useState } from "react";
+import { Stack } from "expo-router";
 
 
 export default function HomeScreen() {
 
   return (
     <ScrollView contentContainerStyle={styles.scrollContainer}>
+      <Stack.Screen options={{ headerShown: false }} />
       {/* Header */}
       <ProfileHeader
         name={profileData.name}

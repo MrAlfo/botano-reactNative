@@ -24,7 +24,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="engage"
+        name="explore"
         options={{
           tabBarButton: (props) => (
             <TouchableWithoutFeedback onPress={() => {}}>
@@ -37,7 +37,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="engage"
         options={{
           tabBarButton: (props) => (
             <TouchableWithoutFeedback onPress={() => {}}>
