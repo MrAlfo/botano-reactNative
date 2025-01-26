@@ -8,6 +8,7 @@ import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { AuthProvider, useAuth } from '@/hooks/AuthContext';
+import React from 'react';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -54,10 +55,10 @@ function AppNavigator() {
   return (
     <Stack>
       {isLoggedIn ? (
-        <Stack>
+        <>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen name="+not-found" />
-        </Stack>
+        </>
       ) : (
         <Stack.Screen name="login" options={{ title: 'Login', headerShown: false }} />
       )}

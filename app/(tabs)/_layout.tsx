@@ -15,6 +15,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
+          headerShown: false,
           tabBarIcon: ({ focused }) => (
             <View style={[styles.tabItem, focused && styles.activeTab]}>
               <Ionicons name="eye" size={18} color={focused ? '#FFFFFF' : '#2D625F'} />
@@ -26,6 +27,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="explore"
         options={{
+          headerShown: false,
           tabBarButton: (props) => (
             <TouchableWithoutFeedback onPress={() => {}}>
               <View style={styles.tabItem}>
@@ -39,6 +41,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="engage"
         options={{
+          headerShown: false,
           tabBarButton: (props) => (
             <TouchableWithoutFeedback onPress={() => {}}>
               <View style={styles.tabItem}>

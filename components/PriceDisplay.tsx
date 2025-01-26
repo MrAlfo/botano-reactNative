@@ -8,7 +8,7 @@ export const PriceDisplay: React.FC<PriceDisplayProps> = ({ title, price, subtit
       showsHorizontalScrollIndicator={false} style={styles.priceContainer}>
       <View style={styles.imagesContainer}>
         {images.map((imageUrl: any, index: any) => (
-          <View style={styles.bothContainer}>
+          <View key={index} style={styles.bothContainer}>
             <Image
               key={index}
               resizeMode="contain"

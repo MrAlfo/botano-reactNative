@@ -1,3 +1,21 @@
+TEST USER: user@test.com
+PASSWORD: 123456
+You can use same account for web and mobile app.
+
+# Developer Notes
+
+- Firebase was used for the project's login and logout functionality.
+- Global state management was provided using ContextAPI.
+- The folder structure was built in accordance with modern libraries.
+- The design was created entirely from scratch with extensive use of pure CSS.
+- A BottomSheet was integrated into the 'OK I'm in' button on the Help page and written from scratch.
+- Expo Router was used.
+- All types were written following TypeScript methods.
+- ScrollView was used for the horizontal slider.
+- Buttons are customizable, names and mock data inside can be fetched from the database, animations and warning screens can be added, and notification and menu screens can be developed. The infrastructure and libraries for all these were prepared.
+- The project was developed following a clean code structure.
+- Separate styles files were created for the login and home pages. This approach can also be applied to other components.
+
 # Welcome to your Expo app 👋
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
