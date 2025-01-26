@@ -3,15 +3,18 @@ import { View, Text, TextInput, StyleSheet, TouchableOpacity, KeyboardAvoidingVi
 import { Stack, useRouter } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Image } from 'expo-image';
+import { useAuth } from '@/hooks/AuthContext';
 
 export default function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const router = useRouter();
+  const { setIsLoggedIn } = useAuth();
 
   const handleLogin = () => {
     if (username === 'user' && password === 'pass') {
       // Giriş başarılıysa anasayfaya yönlendir
+      setIsLoggedIn(true);
       router.push('/(tabs)');
     } else {
       alert('Invalid credentials');

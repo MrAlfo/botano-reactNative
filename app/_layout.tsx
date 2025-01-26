@@ -7,16 +7,13 @@ import { useEffect, useState } from 'react';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { AuthProvider, useAuth } from '@/hooks/AuthContext';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Login durumu
-  const [loading, setLoading] = useState(true); // Yükleniyor durumu
-  const router = useRouter();
-
   const [fontsLoaded] = useFonts({
     Poppins_Light: require('../assets/fonts/Poppins-Light.ttf'),
     Poppins_Regular: require('../assets/fonts/Poppins-Regular.ttf'),
@@ -24,41 +21,46 @@ export default function RootLayout() {
   });
 
   useEffect(() => {
-    const checkLoginStatus = async () => {
-      // Login durumu kontrol ediliyor
-      const userToken = null; // Örneğin: AsyncStorage.getItem('userToken');
-      setIsLoggedIn(!!userToken);
-      setLoading(false); // Yükleme tamamlandı
-    };
-
-    checkLoginStatus();
-  }, []);
-
-  useEffect(() => {
-    if (fontsLoaded && !loading) {
+    if (fontsLoaded) {
       SplashScreen.hideAsync();
-      // Login durumuna göre yönlendirme
-      if (!isLoggedIn) {
-        router.replace('/pages/login');
-      } else {
-        router.replace('/pages/login');
-      }
     }
-  }, [fontsLoaded, loading, isLoggedIn]);
+  }, [fontsLoaded]);
 
-  if (!fontsLoaded || loading) {
+  if (!fontsLoaded) {
     // Splash screen gösteriliyor
     return null;
   }
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="login" options={{ title: 'Login', headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
+      <AuthProvider>
+        <AppNavigator />
+        <StatusBar style="auto" />
+      </AuthProvider>
     </ThemeProvider>
+  );
+}
+
+function AppNavigator() {
+  const { isLoggedIn } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      router.replace('/pages/login'); // Kullanıcı giriş yapmamışsa login sayfasına yönlendir
+    }
+  }, [isLoggedIn]);
+
+  return (
+    <Stack>
+      {isLoggedIn ? (
+        <Stack>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="+not-found" />
+        </Stack>
+      ) : (
+        <Stack.Screen name="login" options={{ title: 'Login', headerShown: false }} />
+      )}
+    </Stack>
   );
 }
