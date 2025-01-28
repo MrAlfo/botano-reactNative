@@ -22,7 +22,7 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 import { Stack, useRouter } from "expo-router";
-import { Ionicons } from "@expo/vector-icons";
+import { AntDesign, EvilIcons, Feather, Ionicons, MaterialIcons, SimpleLineIcons } from "@expo/vector-icons";
 import { styles, sheetStyles } from './styles/help'
 
 interface BottomSheetProps {
@@ -131,8 +131,8 @@ const KartModal = () => {
               price="$150"
               subtitle="Sustainably Wild Harvested Chaga Mushroom"
               images={[
-                "https://cdn.builder.io/api/v1/image/assets/TEMP/00a158dfd32bdb68f526b60eb767973e4037a8c27231b1bf40233e59293b1f9f?placeholderIfAbsent=true&apiKey=7efa2bc6ca0748d89d049010d54aaee0",
-                "https://cdn.builder.io/api/v1/image/assets/TEMP/a0f3dabfa93ecdb1ad1ecfa5a3707b98e904a4f8f83e61b4e41f4f7836782ee2?placeholderIfAbsent=true&apiKey=7efa2bc6ca0748d89d049010d54aaee0",
+                require('../../assets/images/releated1.png'),
+                require('../../assets/images/releated2.png'),
               ]}
             />
             <TouchableOpacity style={styles.actionButton} onPress={toggleSheet}>
@@ -145,12 +145,14 @@ const KartModal = () => {
       </ScrollView>
       <BottomSheet isOpen={isOpen} toggleSheet={toggleSheet}>
         <ScrollView showsVerticalScrollIndicator={false} style={styles.sheetContent}>
-        <TouchableOpacity
-          style={styles.backButtonModal}
-          onPress={toggleSheet}
-        >
-          <Ionicons name="arrow-back" size={32} color="gray" />
-        </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.backButtonModal}
+            onPress={toggleSheet}
+          >
+            <View style={styles.backBtn}>
+            <MaterialIcons name="arrow-back-ios-new" size={18} color="black" />
+            </View>
+          </TouchableOpacity>
           <Text style={styles.cardCompletedText}>CARD COMPLETED!</Text>
           <Text style={styles.greatText}>Great!</Text>
           <Text style={styles.subtitle}>
@@ -166,41 +168,37 @@ const KartModal = () => {
                 source={require("../../assets/images/leaf.png")}
                 style={styles.leafIcon}
               />
+              <View style={styles.fireIcon}>
+                <SimpleLineIcons name="fire" size={24} color="black" />
+              </View>
+            </View>
+          </View>
+          <View style={styles.iconsContainer}>
+            <View style={styles.iconBox}>
+              <Feather style={styles.iconImage} name="camera" size={24} color="black" />
+              <Text style={styles.iconText}>+1</Text>
+            </View>
+            <View style={styles.iconBox}>
+              <Ionicons style={styles.iconImage} name="mic-outline" size={24} color="black" />
+              <Text style={styles.iconText}>+1</Text>
+            </View>
+            <View style={[styles.iconBox, styles.disabled]}>
+              <EvilIcons style={styles.iconImage} name="play" size={24} color="black" />
+              <Text style={styles.iconText}>-</Text>
             </View>
           </View>
           <Text style={styles.extraPointsText}>
             Daha fazla puan kazanmak için{"\n"}
             <Text style={styles.extraPointsBold}>video yükleyebilirsiniz.</Text>
           </Text>
-          <View style={styles.iconsContainer}>
-            <View style={styles.iconBox}>
-              <Image
-                // source={require("./assets/camera.png")}
-                style={styles.iconImage}
-              />
-              <Text style={styles.iconText}>+1</Text>
-            </View>
-            <View style={styles.iconBox}>
-              <Image
-                // source={require("./assets/mic.png")}
-                style={styles.iconImage}
-              />
-              <Text style={styles.iconText}>+1</Text>
-            </View>
-            <View style={[styles.iconBox, styles.disabled]}>
-              <Image
-                // source={require("./assets/video.png")}
-                style={styles.iconImage}
-              />
-              <Text style={styles.iconText}>-</Text>
-            </View>
-          </View>
           <View style={styles.nextCardContainer}>
             <Text style={styles.nextCardTitle}>RELATED CARDS</Text>
             <Text style={styles.cardTitle}>Plant Care Day</Text>
             <View style={styles.nextCardContent}>
               <TouchableOpacity>
-                <Text style={styles.arrowText}>{"<"}</Text>
+                <View>
+                  <AntDesign disabled name="arrowleft" size={24} color="gray" />
+                </View>
               </TouchableOpacity>
               <View style={styles.card}>
                 <Image
@@ -209,7 +207,9 @@ const KartModal = () => {
                 />
               </View>
               <TouchableOpacity>
-                <Text style={styles.arrowText}>{">"}</Text>
+                <View>
+                  <AntDesign name="arrowright" size={24} color="black" />
+                </View>
               </TouchableOpacity>
             </View>
             <TouchableOpacity style={styles.newCardButton}>
@@ -217,27 +217,45 @@ const KartModal = () => {
             </TouchableOpacity>
           </View>
           <View style={styles.nextCardContainer}>
-            <Text style={styles.nextCardTitle}>RELATED CARDS</Text>
-            <Text style={styles.cardTitle}>Plant Care Day</Text>
+            <Text style={styles.nextCardTitle}>MEET PEOPLE</Text>
+            <Text style={styles.cardTitle}>Botano Neighbors</Text>
             <View style={styles.nextCardContent}>
-              <TouchableOpacity>
-                <Text style={styles.arrowText}>{"<"}</Text>
-              </TouchableOpacity>
-              <View style={styles.card}>
+              <View style={styles.meetCard}>
                 <Image
-                  source={require("../../assets/images/woman.png")}
-                  style={styles.cardImage}
+                  source={require("../../assets/images/frames.png")}
+                  style={styles.meetCardImage}
                 />
               </View>
-              <TouchableOpacity>
-                <Text style={styles.arrowText}>{">"}</Text>
-              </TouchableOpacity>
             </View>
             <TouchableOpacity style={styles.newCardButton}>
-              <Text style={styles.newCardButtonText}>CONTINUE NEW CARD</Text>
+              <Text style={styles.newCardButtonText}>DISCOVERY NEW CAMP</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.nextCardContainer}>
+            <Text style={styles.nextCardTitle}>NEXT CAMP</Text>
+            <Text style={styles.cardTitle}>Mindfulness</Text>
+            <Text style={styles.cardTitle}>Practices</Text>
+            <View style={styles.nextCardContent}>
+              <View style={styles.campCard}>
+                <Image
+                  source={require("../../assets/images/camp.png")}
+                  style={styles.campImage}
+                />
+              </View>
+            </View>
+            <TouchableOpacity style={styles.newCardButton}>
+              <Text style={styles.newCardButtonText}>DISCOVERY NEW CAMP</Text>
             </TouchableOpacity>
           </View>
         </ScrollView>
+        <View style={styles.footer}>
+            <TouchableOpacity
+              style={styles.continueButton}
+              onPress={() => console.log("Continue Pressed")}
+            >
+              <Text style={styles.continueButtonText}>Continue</Text>
+            </TouchableOpacity>
+          </View>
       </BottomSheet>
     </SafeAreaView>
   );

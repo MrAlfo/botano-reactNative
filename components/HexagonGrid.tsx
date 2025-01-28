@@ -4,12 +4,12 @@ import Hexagon from './Hexagon';
 
 const HexagonGrid = () => {
   const items = [
-    { label: 'Products for you', color: '#A8E6CF' },
-    { label: 'Power Profile', color: '#DCEDC1' },
-    { label: 'Sensor', color: '#FFAAA5' },
-    { label: 'Create Altar', color: '#D4A5A5' },
-    { label: 'All Routines', color: '#FFC5A1' },
-    { label: 'Discover Circle', color: '#FFD3B6' },
+    { label: 'Products for you', color: '#99D8A0' },
+    { label: 'Power Profile', color: '#B0E0F0' },
+    { label: 'Discover Circle', color: '#FFCE66' },
+    { label: 'Sensor', color: '#7EB6E7' },
+    { label: 'All Routines', color: '#FF8C6D' },
+    { label: 'Create Altar', color: '#8A90D4' },
   ];
 
   return (

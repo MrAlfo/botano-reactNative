@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { useRouter } from "expo-router";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const BotanoCard = () => {
   const router = useRouter();
@@ -25,6 +26,7 @@ const BotanoCard = () => {
 
         {/* Buton */}
         <TouchableOpacity onPress={() => router.push('/pages/help')} style={styles.button}>
+          <MaterialCommunityIcons name="comment-processing-outline" size={28} color="#fff" />
           <Text style={styles.buttonText}>Do you want help?</Text>
         </TouchableOpacity>
       </View>
@@ -46,14 +48,14 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   icon: {
-    width: 40,
-    height: 40,
+    width: 80,
+    height: 80,
     marginRight: 10,
   },
   title: {
     fontSize: 18,
     fontFamily: "Poppins_Bold",
-    color: "#2A9D8F",
+    color: "#323534",
   },
   text: {
     marginBottom: 10,
@@ -62,20 +64,25 @@ const styles = StyleSheet.create({
   },
   description: {
     padding: 20,
-    backgroundColor: "#DFF7E6",
+    backgroundColor: "#E1EFE3",
     borderRadius: 10,
     borderStartStartRadius: 0,
     fontSize: 16,
-    color: "#2A9D8F",
+    color: "#E1EFE3",
     marginBottom: 15,
     fontFamily: "Poppins_Regular",
   },
   button: {
-    backgroundColor: "#2A9D8F",
-    borderRadius: 5,
+    display: 'flex',
+    flexDirection: 'row',
+    gap: 10,
+    alignContent: 'center',
+    backgroundColor: "#38635A",
+    borderRadius: 100,
     paddingVertical: 10,
     alignItems: "flex-start",
-    paddingLeft: 10,
+    maxWidth: '75%',
+    paddingLeft: 20,
     marginTop: 10,
   },
   buttonText: {

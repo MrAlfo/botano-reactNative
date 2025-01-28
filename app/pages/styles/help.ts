@@ -16,6 +16,15 @@ export const styles = StyleSheet.create({
         flex: 1,
         marginHorizontal: 0
     },
+    backBtn: {
+        backgroundColor: '#ECECEC',
+        width: 36,
+        height: 36,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 36
+    },
     backButton: {
         borderRadius: 90,
         borderColor: "#FFFFFF",
@@ -62,7 +71,6 @@ export const styles = StyleSheet.create({
     },
     actionButton: {
         borderRadius: 40,
-        marginTop: 29,
         padding: 16,
         borderColor: "#ffffff",
         borderWidth: 1,
@@ -203,12 +211,27 @@ export const styles = StyleSheet.create({
         right: 0,
         top: 0,
     },
+    fireIcon: {
+        width: 40,
+        height: 40,
+        position: "absolute",
+        right: -20,
+        top: 40,
+        backgroundColor: '#FFB076',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: '100%',
+        borderWidth: 4,
+        borderColor: '#fff'
+    },
     extraPointsText: {
         textAlign: "center",
         fontSize: 14,
         lineHeight: 20,
         color: "#323534",
         marginBottom: 20,
+        marginTop: 20
     },
     extraPointsBold: {
         fontWeight: "600",
@@ -224,7 +247,8 @@ export const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: "rgba(0, 0, 0, 0.5)",
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "flex-start",
+        paddingLeft: 16,
         flexDirection: "row",
     },
     iconImage: {
@@ -259,18 +283,44 @@ export const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
-        marginBottom: 20,
     },
     card: {
         width: 200,
-        height: 250,
+        height: 280,
+        alignItems: "center",
+        justifyContent: "center",
+        marginHorizontal: 20,
+    },
+    meetCard: {
+        width: 250,
+        height: 280,
+        alignItems: "center",
+        justifyContent: "center",
+        marginHorizontal: 20,
+    },
+    campCard: {
+        width: 250,
+        height: 300,
+        alignItems: "center",
+        justifyContent: "center",
+        marginHorizontal: 20,
+    },
+    campImage: {
+        width: 220,
+        height: 200,
         alignItems: "center",
         justifyContent: "center",
         marginHorizontal: 20,
     },
     cardImage: {
-        width: 160,
-        height: 180,
+        width: '100%',
+        height: 200,
+        borderRadius: 10,
+        marginBottom: 10,
+    },
+    meetCardImage: {
+        width: '100%',
+        height: 160,
         borderRadius: 10,
         marginBottom: 10,
     },
@@ -281,24 +331,45 @@ export const styles = StyleSheet.create({
         textAlign: "center",
         fontFamily: 'Poppins_Regular'
     },
-    arrowText: {
-        fontSize: 24,
-        fontWeight: "700",
-        color: "#323534",
-    },
     newCardButton: {
         backgroundColor: "#000",
         paddingHorizontal: 40,
         paddingVertical: 10,
-        borderRadius: 25,
+        borderRadius: 16,
         alignItems: "center",
         justifyContent: "center",
+        marginBottom: 20
     },
     newCardButtonText: {
         fontSize: 16,
-        fontWeight: "700",
+        fontWeight: "400",
         color: "#FFF",
+        padding: 10,
     },
+    footer: {
+        position: "sticky",
+        bottom: 0,
+        width: "100%",
+        backgroundColor: "#FFFFFF",
+        padding: 15,
+        alignItems: "center",
+        borderRadius: 20,
+      },
+      continueButton: {
+        backgroundColor: "#000",
+        borderRadius: 25,
+        paddingVertical: 20,
+        paddingHorizontal: 40,
+        marginVertical: 10,
+        alignItems: "center",
+        width: '100%'
+      },
+      continueButtonText: {
+        color: "#fff",
+        fontSize: 16,
+        fontWeight: "bold",
+      },
+
 });
 
 // BottomSheet için Stil

@@ -1,3 +1,4 @@
+import { FontAwesome6 } from '@expo/vector-icons';
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import Svg, { Polygon, ClipPath, Defs, Image as SvgImage } from 'react-native-svg';
@@ -38,6 +39,7 @@ const Hexagon: React.FC<HexagonProps> = ({ label, color, imageSource }) => {
       {/* Altıgenin Ortasındaki Yazı */}
       {!imageSource && label && (
         <View style={styles.textWrapper}>
+          <View style={styles.arrowContainer}><FontAwesome6 name="arrow-right" size={18} color="black" /></View>
           <Text style={styles.text}>{label}</Text>
         </View>
       )}
@@ -61,11 +63,19 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   text: {
-    fontSize: 14,
+    fontSize: 12,
     fontFamily: "Poppins_Regular",
     color: '#000',
     textAlign: 'center',
+    width: 60
   },
+  arrowContainer: {
+    backgroundColor: '#fff',
+    borderRadius: 60,
+    paddingVertical: 4,
+    paddingHorizontal: 6,
+    marginBottom: 5
+  }
 });
 
 export default Hexagon;

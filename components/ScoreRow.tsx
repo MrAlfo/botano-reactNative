@@ -13,8 +13,8 @@ export default function ScoreRow() {
   return (
     <View style={styles.container}>
       {scores.map((item) => (
-        <View key={item.id} style={[styles.item, { backgroundColor: item.color }]}>
-          <FontAwesome5 name={item.icon} size={18} color="#000" style={styles.icon} />
+        <View key={item.id} style={[styles.item]}>
+          <View style={[styles.iconContainer, { backgroundColor: item.color }]}><FontAwesome5 name={item.icon} size={18} color="#000" style={styles.icon} /></View>
           <Text style={styles.text}>{item.value}</Text>
         </View>
       ))}
@@ -29,24 +29,39 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 20,
     marginHorizontal: 20,
-    gap:10
+    gap:14
   },
   item: {
     flexDirection: "row",
-    gap:5,
+    gap:1,
     alignItems: "center",
-    justifyContent: "center",
-    padding: 10,
+    justifyContent: "space-between",
+    padding: 3,
     borderRadius: 20,
-    minWidth: '20%',
+    minWidth: '18%',
+    backgroundColor: '#fff'
 
   },
   icon: {
-    marginRight: 5,
+    marginRight: 0,
+    display: 'flex',
+    justifyContent: 'center',
+    fontSize: 16
   },
   text: {
     fontSize: 16,
     fontWeight: "bold",
     color: "#000",
+    marginRight: 10
   },
+  iconContainer: {
+    width: 30,
+    height: 30,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 30,
+    backgroundColor: '#fff',
+    padding: 2
+  }
 });

@@ -12,7 +12,7 @@ export const PriceDisplay: React.FC<PriceDisplayProps> = ({ title, price, subtit
             <Image
               key={index}
               resizeMode="contain"
-              source={{ uri: imageUrl }}
+              source={imageUrl}
               style={styles.image}
             />
             <Text style={styles.title}>{title}</Text>
@@ -22,8 +22,6 @@ export const PriceDisplay: React.FC<PriceDisplayProps> = ({ title, price, subtit
             </View>
             <Text style={styles.subtitle}>{subtitle}</Text>
             </View>
-
-
         ))}
       </View>
     </ScrollView>
@@ -35,6 +33,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     marginTop: 11,
     gap: 13,
+    marginBottom: 20
   },
   title: {
     fontSize: 12,
@@ -56,10 +55,10 @@ const styles = StyleSheet.create({
   underline: {
     borderColor: '#FFFFFF',
     borderStyle: 'solid',
-    borderWidth: 3,
+    borderTopWidth: 3,
     marginTop: 4,
     width: 39,
-    height: 3,
+    height: 0,
   },
   subtitle: {
     fontSize: 12,
@@ -76,10 +75,14 @@ const styles = StyleSheet.create({
   },
   image: {
     width: 196,
+    height: 150,
+    marginBottom: 20,
     aspectRatio: 1.28,
     flexShrink: 0,
+    borderRadius: 20
   },
   bothContainer: {
-    display: 'flex'
+    display: 'flex',
+    width: '40%'
   }
 });
