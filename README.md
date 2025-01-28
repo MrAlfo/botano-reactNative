@@ -1,4 +1,4 @@
-TEST USER: user@test.com
+TEST USER: test@user.com
 PASSWORD: 123456
 You can use same account for web and mobile app.
 
@@ -15,6 +15,7 @@ You can use same account for web and mobile app.
 - Buttons are customizable, names and mock data inside can be fetched from the database, animations and warning screens can be added, and notification and menu screens can be developed. The infrastructure and libraries for all these were prepared.
 - The project was developed following a clean code structure.
 - Separate styles files were created for the login and home pages. This approach can also be applied to other components.
+- React paper is added into Login page for error handling and for UX.
 
 # Welcome to your Expo app 👋
 
