@@ -5,6 +5,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
 import 'react-native-reanimated';
+import { Provider as PaperProvider } from 'react-native-paper';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { AuthProvider, useAuth } from '@/hooks/AuthContext';
@@ -35,8 +36,10 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <AuthProvider>
+      <PaperProvider>
         <AppNavigator />
         <StatusBar style="auto" />
+        </PaperProvider>
       </AuthProvider>
     </ThemeProvider>
   );
@@ -56,7 +59,7 @@ function AppNavigator() {
     <Stack>
       {isLoggedIn ? (
         <>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name=""  />
           <Stack.Screen name="+not-found" />
         </>
       ) : (

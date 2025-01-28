@@ -69,5 +69,17 @@ export const styles = StyleSheet.create({
       color: '#fff',
       textDecorationLine: 'underline',
     },
+    modalContainer: {
+      backgroundColor: 'white',
+      padding: 20,
+      marginHorizontal: 40,
+      borderRadius: 10,
+      alignItems: 'center',
+    },
+    modalText: {
+      marginBottom: 20,
+      fontSize: 16,
+      color: '#333',
+    },
   });
   
